@@ -24,3 +24,11 @@ export const searchFilm = async (query) => {
   );
   return response;
 };
+
+export const infoFilm = async (id) => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
+    options
+  );
+  return response;
+};

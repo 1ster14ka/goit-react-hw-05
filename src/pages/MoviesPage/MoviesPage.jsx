@@ -1,6 +1,8 @@
-import { Field, Formik } from "formik";
-import { useState } from "react";
-import { Form } from "react-router-dom";
+import { Field, Formik, Form } from "formik";
+import { useEffect, useState } from "react";
+import { searchFilm } from "../../api/api";
+import TopFilms from "../../components/TopFilms/TopFilms";
+
 // import toast from "toast";
 
 const MoviesPage = () => {
@@ -9,6 +11,15 @@ const MoviesPage = () => {
   };
   const [query, setQuery] = useState("");
   const [dataFilm, setDataFilm] = useState([]);
+
+  useEffect(() => {
+    const searchMovie = async (query) => {
+      const { data } = await searchFilm(query);
+      //   console.log(data.results);
+      setDataFilm(data.results);
+    };
+    searchMovie(query);
+  }, [query]);
 
   function handleSubmit(value) {
     if (!value.queryFilm) {
@@ -26,6 +37,7 @@ const MoviesPage = () => {
           <button type="submit">Enter</button>
         </Form>
       </Formik>
+      <TopFilms films={dataFilm} />
     </div>
   );
 };
