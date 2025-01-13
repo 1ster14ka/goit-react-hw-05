@@ -3,14 +3,19 @@ import { useEffect, useState } from "react";
 import { searchFilm } from "../../api/api";
 import TopFilms from "../../components/TopFilms/TopFilms";
 import css from "./MoviesPage.module.css";
+import { useSearchParams } from "react-router-dom";
 
 // import toast from "toast";
 
 const MoviesPage = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const movie = searchParams.get("movie") ?? "";
+  const [query, setQuery] = useState(movie);
+
   const initialValues = {
     queryFilm: "",
   };
-  const [query, setQuery] = useState("");
   const [dataFilm, setDataFilm] = useState([]);
 
   useEffect(() => {
@@ -28,6 +33,7 @@ const MoviesPage = () => {
       return;
     }
     setQuery(value.queryFilm);
+    setSearchParams({ movie: value.queryFilm });
   }
 
   return (
