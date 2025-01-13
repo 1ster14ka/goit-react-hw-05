@@ -1,4 +1,5 @@
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
+import { LineWave } from "react-loader-spinner";
 
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
@@ -19,18 +20,37 @@ const MovieReviews = lazy(() =>
 function App() {
   return (
     <>
-      <Navigation />
+      <Suspense
+        fallback={
+          <div>
+            <LineWave
+              visible={true}
+              height="100"
+              width="100"
+              color="#4fa94d"
+              ariaLabel="line-wave-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+              firstLineColor=""
+              middleLineColor=""
+              lastLineColor=""
+            />
+          </div>
+        }
+      >
+        <Navigation />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:moviesId" element={<MovieDetailsPage />}>
-          <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<MovieReviews />} />
-        </Route>
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+          <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movies/:moviesId" element={<MovieDetailsPage />}>
+            <Route path="cast" element={<MovieCast />} />
+            <Route path="reviews" element={<MovieReviews />} />
+          </Route>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
