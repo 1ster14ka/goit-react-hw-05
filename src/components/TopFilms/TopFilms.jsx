@@ -1,25 +1,15 @@
-import { useEffect, useState } from "react";
-import { fetchAllFilms } from "../../api/api";
 import { Link, useLocation } from "react-router-dom";
+import css from "./TopFilms.module.css";
 
 const TopFilms = ({ films }) => {
   const location = useLocation();
-  console.log(location);
-
-  //   useEffect(() => {
-  //     const data = async () => {
-  //       const response = await fetchAllFilms();
-  //       setTopDailyFilms(response.results);
-  //     };
-  //     data();
-  //   }, []);
 
   return (
-    <div>
+    <div className={css.wrappFilms}>
       <ul>
         {films.map((item) => (
           <li key={item.id}>
-            <Link to={`/movie/${item.id}`} state={location}>
+            <Link to={`/movies/${item.id}`} state={location}>
               <p>{item.original_title}</p>
             </Link>
           </li>

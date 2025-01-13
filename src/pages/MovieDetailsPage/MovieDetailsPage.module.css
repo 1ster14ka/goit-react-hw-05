@@ -1,0 +1,36 @@
+.backBtn {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  padding: 12px 18px;
+  border: 1px solid black;
+  color: black;
+  border-radius: 12px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration: none;
+
+  transition: all 200ms ease-in-out;
+}
+
+.backBtn:hover {
+  color: #a11a1a;
+}
+
+.image {
+  margin-top: 70px;
+}
+
+.detailsFilm {
+  padding-left: 20px;
+}
+
+.cast {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.reviews {
+  font-size: 20px;
+}

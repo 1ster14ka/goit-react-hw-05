@@ -5,3 +5,16 @@
 .active {
   color: orange;
 }
+
+.navigation {
+  display: flex;
+  gap: 20px;
+  font-size: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* border-bottom: 1px solid black; */
+  padding: 20px;
+  width: 100%;
+}
+
+.home {
+}

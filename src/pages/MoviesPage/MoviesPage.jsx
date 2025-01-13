@@ -2,6 +2,7 @@ import { Field, Formik, Form } from "formik";
 import { useEffect, useState } from "react";
 import { searchFilm } from "../../api/api";
 import TopFilms from "../../components/TopFilms/TopFilms";
+import css from "./MoviesPage.module.css";
 
 // import toast from "toast";
 
@@ -32,7 +33,7 @@ const MoviesPage = () => {
   return (
     <div>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form>
+        <Form className={css.form}>
           <Field type="text" name="queryFilm" />
           <button type="submit">Enter</button>
         </Form>

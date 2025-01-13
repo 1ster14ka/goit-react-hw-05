@@ -32,3 +32,19 @@ export const infoFilm = async (id) => {
   );
   return response;
 };
+
+export const infoCast = async (id) => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`,
+    options
+  );
+  return response;
+};
+
+export const reviewsFilm = async (id) => {
+  const response = await axios.get(
+    `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`,
+    options
+  );
+  return response;
+};

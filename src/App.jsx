@@ -1,26 +1,34 @@
-import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { lazy } from "react";
+
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+
 import Navigation from "./components/Navigation/Navigation";
-import MoviesPage from "./pages/MoviesPage/MoviesPage";
-import MovieDetailsPage from "./pages/MovieDetailsPage/MovieDetailsPage";
+
+const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
+const MovieDetailsPage = lazy(() =>
+  import("./pages/MovieDetailsPage/MovieDetailsPage")
+);
+const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
+const MovieReviews = lazy(() =>
+  import("./components/MovieReviews/MovieReviews")
+);
 
 function App() {
   return (
     <>
-      {/* <Header /> */}
-      {/* <TopFilms topFilms={topFilms} /> */}
       <Navigation />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
 
         <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:moviesId" element={<MovieDetailsPage />} />
+        <Route path="/movies/:moviesId" element={<MovieDetailsPage />}>
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MovieReviews />} />
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
