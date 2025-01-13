@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
-import css from "./TopFilms.module.css";
+import css from "./MovieList.module.css";
 
-const TopFilms = ({ films }) => {
+const MovieList = ({ films }) => {
   const location = useLocation();
 
   return (
@@ -19,4 +19,4 @@ const TopFilms = ({ films }) => {
   );
 };
 
-export default TopFilms;
+export default MovieList;
