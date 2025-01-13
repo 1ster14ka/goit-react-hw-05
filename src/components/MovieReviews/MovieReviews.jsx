@@ -12,6 +12,7 @@ const MovieReviews = () => {
         const {
           data: { results },
         } = await reviewsFilm(moviesId);
+
         setReviews(results);
       } catch (error) {
         console.log(error);
@@ -23,12 +24,16 @@ const MovieReviews = () => {
   return (
     <div>
       <ul>
-        {reviews.map((item) => (
-          <li key={item.id}>
-            <h3>{item.author}</h3>
-            <p>{item.content}</p>
-          </li>
-        ))}
+        {reviews.length === 0 ? (
+          <p>Empty</p>
+        ) : (
+          reviews.map((item) => (
+            <li key={item.id}>
+              <h3>{item.author}</h3>
+              <p>{item.content}</p>
+            </li>
+          ))
+        )}
       </ul>
     </div>
   );
