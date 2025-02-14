@@ -1,0 +1,21 @@
+.actorImg {
+  max-height: 320px;
+  height: 100%;
+  max-width: 213px;
+  min-height: 319px;
+  object-fit: cover;
+}
+
+.movieCastList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.movieCastItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -12,8 +12,11 @@ const options = {
   },
 };
 
-export const fetchAllFilms = async () => {
-  const { data } = await axios.get(url + topFilms, options);
+export const fetchAllFilms = async (pageNumber) => {
+  const { data } = await axios.get(
+    url + `${topFilms}&page=${pageNumber}`,
+    options
+  );
   return data;
 };
 

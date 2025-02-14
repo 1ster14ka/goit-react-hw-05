@@ -1,4 +1,4 @@
-.backBtn {
+/* .backBtn {
   position: absolute;
   top: 80px;
   left: 20px;
@@ -12,18 +12,48 @@
   text-decoration: none;
 
   transition: all 200ms ease-in-out;
+} */
+
+.backBtn {
+  display: block;
+  margin-top: 20px;
+  width: 70px;
+  padding: 12px 18px;
+  border: 1px solid wheat;
+  color: black;
+  border-radius: 12px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  text-decoration: none;
+
+  transition: all 200ms ease-in-out;
 }
 
 .backBtn:hover {
-  color: #a11a1a;
+  color: orange;
 }
 
 .image {
   margin-top: 70px;
+  display: block;
+  /* width: 100%; */
 }
 
 .detailsFilm {
-  padding-left: 20px;
+  /* padding-left: 20px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.detailsFilmList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .cast {
@@ -33,4 +63,16 @@
 
 .reviews {
   font-size: 20px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .image {
+    max-width: 300px;
+  }
+}
+
+/*  ========================= */
+
+.wrappCast {
+  width: 100%;
 }

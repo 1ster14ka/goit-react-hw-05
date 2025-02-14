@@ -2,4 +2,46 @@
   display: flex;
   justify-content: center;
   margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+/* Базовый стиль инпута */
+.searchFilm {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0.2)
+  );
+  border: 2px solid #444; /* Темная граница */
+  border-radius: 8px; /* Скругленные углы */
+  color: #fff; /* Белый текст */
+  padding: 12px 16px; /* Отступы для комфорта */
+  font-size: 16px; /* Размер шрифта */
+  outline: none; /* Убираем стандартную обводку при фокусе */
+  width: 300px; /* Ширина инпута */
+  transition: all 0.3s ease; /* Плавные анимации */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Тень для глубины */
+}
+
+/* Стилизация инпута при фокусе */
+.searchFilm:focus {
+  border-color: #ff6f61; /* Яркая граница при фокусе */
+  box-shadow: 0 0 8px rgba(255, 111, 97, 0.7); /* Легкое свечение */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.4)
+  ); /* Ярче фон */
+}
+
+/* Стилизация инпута при наведении */
+.searchFilm:hover {
+  border-color: #ff6f61; /* Тот же яркий цвет для границы */
+  background: rgba(255, 255, 255, 0.1); /* Немного измененный фон */
+}
+
+/* Для плейсхолдера */
+.searchFilm::placeholder {
+  color: #bbb; /* Светлый цвет для плейсхолдера */
+  font-style: italic; /* Курсив для плейсхолдера */
 }

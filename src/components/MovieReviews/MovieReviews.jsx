@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { reviewsFilm } from "../../api/api";
+import css from "../../pages/MovieDetailsPage/MovieDetailsPage.module.css";
 
 const MovieReviews = () => {
   const { moviesId } = useParams();
@@ -22,7 +23,7 @@ const MovieReviews = () => {
     reviews();
   }, [moviesId]);
   return (
-    <div>
+    <div className={css.wrappCast}>
       <ul>
         {reviews.length === 0 ? (
           <p>Empty</p>

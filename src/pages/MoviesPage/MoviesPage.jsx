@@ -37,7 +37,7 @@ const MoviesPage = () => {
     <div>
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form className={css.form}>
-          <Field type="text" name="queryFilm" />
+          <Field type="text" name="queryFilm" className={css.searchFilm} />
           <button type="submit">Enter</button>
         </Form>
       </Formik>

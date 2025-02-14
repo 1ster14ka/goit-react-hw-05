@@ -24,14 +24,13 @@ const MovieDetailsPage = () => {
   return (
     <div>
       <NavLink to={backBtn.current} className={css.backBtn}>
-        {" "}
         Go Back
       </NavLink>
       {infoMovie ? (
         <div className={css.detailsFilm}>
-          <ul>
+          <ul className={css.detailsFilmList}>
             {infoMovie.map((item) => (
-              <li key={item.id}>
+              <li key={item.id} className={css.detailsFilmList}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                   alt={`${item.title}`}
@@ -62,8 +61,8 @@ const MovieDetailsPage = () => {
             <NavLink to="reviews" className={css.reviews}>
               Reviews
             </NavLink>
-            <Outlet />
           </div>
+          <Outlet />
         </div>
       ) : (
         <p>Loading ...</p>
