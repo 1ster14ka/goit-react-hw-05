@@ -2,32 +2,31 @@ import { useEffect, useState } from "react";
 import { fetchAllFilms } from "../../api/api";
 import css from "./HomePage.module.css";
 import MovieList from "../../components/MovieList/MovieList";
+import { useSearchParams } from "react-router-dom";
+import c from "../MoviesPage/MoviesPage.module.css";
 
 const HomePage = () => {
   const [films, setFilms] = useState([]);
-  const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(0);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const page = Number(searchParams.get("page")) || 1;
 
   useEffect(() => {
     const data = async () => {
       const response = await fetchAllFilms(page);
-      console.log(response);
-      // const maxPages = response.total_pages;
       setMaxPage(response.total_pages);
-      console.log(maxPage);
 
       setFilms(response.results);
     };
     data();
   }, [page]);
 
-  function nextPage() {
-    setPage((prev) => (prev += 1));
-  }
-
-  function prevPage() {
-    setPage((prev) => (prev -= 1));
-  }
+  const changePage = (newPage) => {
+    setSearchParams({ page: newPage });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -35,8 +34,18 @@ const HomePage = () => {
 
       <MovieList films={films} />
 
-      {page === 1 ? null : <button onClick={prevPage}>Previous</button>}
-      {page === maxPage ? null : <button onClick={nextPage}>Next</button>}
+      <div className={c.wrappBtnPage}>
+        {page === 1 ? null : (
+          <button onClick={() => changePage(page - 1)} className={c.btnPage}>
+            Previous
+          </button>
+        )}
+        {page === maxPage ? null : (
+          <button onClick={() => changePage(page + 1)} className={c.btnPage}>
+            Next
+          </button>
+        )}
+      </div>
     </>
   );
 };

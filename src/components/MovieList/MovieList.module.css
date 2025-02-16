@@ -4,7 +4,7 @@
   justify-content: center;
   list-style: none;
   padding: 0;
-  margin: -5px; /* Компенсация отступов */
+  margin: -5px;
 }
 
 .movieTitle {
@@ -15,10 +15,9 @@
 }
 
 .movieItem {
-  flex: 1 1 calc((100% - 40px) / 5); /* 5 элементов в ряд */
+  flex: 1 1 calc((100% - 40px) / 5);
   margin: 5px;
   box-sizing: border-box;
-  /* height: 100%; */
   background-color: #1e1e1e;
   border-radius: 10px;
   overflow: hidden;
@@ -39,18 +38,18 @@
 
 @media (max-width: 1279px) and (min-width: 768px) {
   .movieItem {
-    flex: 1 1 calc((100% - 30px) / 3); /* 3 элемента в ряд */
+    flex: 1 1 calc((100% - 30px) / 3);
   }
 }
 
 @media (max-width: 767px) and (min-width: 500px) {
   .movieItem {
-    flex: 1 1 calc((100% - 20px) / 2); /* Теперь 2 элемента в ряд */
+    flex: 1 1 calc((100% - 20px) / 2);
   }
 }
 
 @media (max-width: 499px) and (min-width: 320px) {
   .movieItem {
-    flex: 1 1 100%; /* 1 элемент в ряд */
+    flex: 1 1 100%;
   }
 }

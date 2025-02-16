@@ -13,11 +13,10 @@ const MovieCast = () => {
         const {
           data: { cast },
         } = await infoCast(moviesId);
-        console.log(cast);
 
         setActors(cast);
       } catch (error) {
-        console.log(error);
+        return error.message;
       }
     };
     actors();

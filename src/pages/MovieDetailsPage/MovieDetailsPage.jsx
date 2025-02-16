@@ -15,7 +15,7 @@ const MovieDetailsPage = () => {
         const { data } = await infoFilm(moviesId);
         setInfoMovie([data]);
       } catch (error) {
-        console.log(error);
+        return error.message;
       }
     };
     infFilm();
